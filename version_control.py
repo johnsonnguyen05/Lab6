@@ -1,3 +1,17 @@
+def decode(password):
+    """ 33332295 -> 00009962 """
+    res = ''
+
+    for char in password:
+        n = int(char) - 3
+        if n < 0:
+            n = 10 + n
+        
+        res += str(n)
+    
+    return res
+
+
 def encode(password):  # johnson nguyen
     encode = []
     password = list(password)
@@ -17,7 +31,8 @@ def main():
             print(encode(password))
             print('Your password has been encoded and stored!')
         if menu_selection == 2:
-            pass
+            password = input('Please enter your password to decode: ')
+            print(f'Decoded password is: {decode(password)}')
         if menu_selection == 3:
             exit()
 
